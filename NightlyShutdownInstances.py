@@ -3,7 +3,7 @@ import os,sys
 sys.path.append('/usr/local/lib/python2.7/site-packages')
 import boto3
 ec2 = boto3.resource('ec2')
-instances = ec2.instances.filter(Filters=[{'Name': 'tag:ShutdownNightly', 'Values': ['true']}])
+instances = ec2.instances.filter(Filters=[{'Name': 'tag:PowerOnHours', 'Values': ['6','19']}])
 if None != instances:
     for inst in instances:
         print "Stopping instance {}".format(inst)
